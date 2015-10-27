@@ -1,4 +1,4 @@
-package org.greatfruit.androidcameratest;
+package org.greatfruit.cameratest;
 
 import android.content.Context;
 import android.graphics.ImageFormat;
