@@ -1,7 +1,6 @@
-package org.greatfruit.cameratest;
+package org.greatfruit.androidcameratest;
 
 import android.content.Context;
-import android.graphics.ImageFormat;
 import android.hardware.Camera;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -13,6 +12,7 @@ import java.io.IOException;
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
     private SurfaceHolder mHolder;
     private Camera mCamera;
+    private static final String TAG = "CameraTest";
 
     public CameraPreview(Context context, Camera camera) {
         super(context);
@@ -31,8 +31,9 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         try {
             mCamera.setPreviewDisplay(holder);
             mCamera.startPreview();
+            Log.i(TAG, "Started SurfaceHolder preview");
         } catch (IOException e) {
-            Log.d("CAMERA", "Error setting camera preview: " + e.getMessage());
+            Log.e(TAG, "Error setting camera preview", e);
         }
     }
 
